@@ -1,0 +1,279 @@
+/* ==== Brand Colors & Typography Variables ==== */
+:root {
+  --primary-color: #E53935; /* Crimson */
+  --accent-color: #3949AB;  /* Indigo */
+  --neutral-light: #f5f5f5; /* Light gray background */
+  --neutral-dark: #333333;  /* Dark text */
+  --font-headline: 'Poppins', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+/* ==== Reset & Base Styles ==== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--neutral-light);
+  color: var(--neutral-dark);
+}
+
+/* ==== Header Styles ==== */
+header {
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 64px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 60px;
+}
+
+.logo {
+  font-family: var(--font-headline);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #3949AB;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--accent-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.user-menu {
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--neutral-dark);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 160px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 10;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    border: 1px solid #ccc;
+    color: white;
+    border-radius: 4px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+/* ==== Footer Styles ==== */
+footer {
+  background-color: white;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-body);
+  color: var(--neutral-dark);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  height: 74px;
+}
+
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  footer {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==== DuelGrid Styles ==== */
+
+.duel-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.filter-wrapper {
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--neutral-dark);
+}
+
+
+.filter-wrapper label {
+  margin-right: 0.5rem;
+}
+
+.filter-select {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-family: var(--font-body);
+  color: var(--neutral-dark);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Grid */
+.duel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .duel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .duel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Duel Card */
+.duel-card {
+  background-color: white;
+  border-radius: 0px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.duel-card:hover {
+  border-color: var(--primary-color);
+}
+
+.duel-image {
+  width: 200px;
+  height: 200px;
+  background-color: var(--neutral-light);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.duel-image::before {
+  content: "200×200";
+  color: #aaa;
+}
+
+.duel-title {
+  font-family: var(--font-headline);
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+
+.vote-button {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 150px;
+}
+
+.vote-button:hover {
+  background-color: #d32f2f; /* Slightly darker crimson */
+}
